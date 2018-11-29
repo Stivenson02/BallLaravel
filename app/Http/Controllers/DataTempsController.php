@@ -9,7 +9,11 @@ class DataTempsController extends Controller
 {
   public function index()
   {
-      $dataTemp= DataTemp::orderBy('Mxt',DESC)->get();
-    dd($dataTemp);
+      $dataTempmxt= DataTemp::orderBy('Mxt',DESC)->first();
+      $dataTempmat= DataTemp::orderBy('Mnt',DESC)->first();
+    return[
+      "date_mnt"=$dataTempmat,
+      "date_mxt"=$dataTempmxt
+    ];
   }
 }
